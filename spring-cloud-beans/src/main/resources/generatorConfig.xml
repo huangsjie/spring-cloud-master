@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <!--数据库驱动jar -->
+    <classPathEntry
+            location="D:\WorkSpace\Maven\mavenrepository-3-5\mysql\mysql-connector-java\5.1.35\mysql-connector-java-5.1.35.jar"/>
+
+    <context id="mysql" targetRuntime="MyBatis3">
+        <!-- 去除自动生成的注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!-- 数据库配置 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.1.188:3306/platformdb"
+                        userId="root"
+                        password="123.com">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- model配置 -->
+        <javaModelGenerator targetPackage="com.cloud.master.model" targetProject="D:\WorkSpace\App\springcloud_study\spring-cloud-master\spring-cloud-beans\src\main\java">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- xml配置文件 -->
+        <sqlMapGenerator targetPackage="com.cloud.master.mapperxml" targetProject="D:\WorkSpace\App\springcloud_study\spring-cloud-master\spring-cloud-beans\src\main\java">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+        <!--接口-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.cloud.master.mapper" targetProject="D:\WorkSpace\App\springcloud_study\spring-cloud-master\spring-cloud-beans\src\main\java">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+
+        <table  tableName="s_users" domainObjectName="Users"
+                enableCountByExample="false" enableUpdateByExample="false"
+                enableDeleteByExample="false" enableSelectByExample="false"
+                selectByExampleQueryId="false">
+        </table>
+
+    </context>
+</generatorConfiguration>
